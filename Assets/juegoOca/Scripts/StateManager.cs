@@ -12,14 +12,17 @@ public class StateManager : MonoBehaviour
         recojo = GameObject.FindObjectOfType<TomaText>();
         NumberOfPlayers = recojo.numero;
         penal = new int[NumberOfPlayers];
+        isFinish = new bool[NumberOfPlayers];
+        finalistas = 0;
     }
     TomaText recojo;
     public int NumberOfPlayers ;
     public int CurrentPlayerId = 0;
-    
+    public int finalistas;
     public int DiceTotal;
 
     // NOTE: enum / statemachine is probably a stronger choice, but I'm aiming for simpler to explain.
+    public bool [] isFinish;
     public bool IsDoneRolling = false;
     public bool IsDoneClicking = false;
     public bool IsDoneAnimating = false;

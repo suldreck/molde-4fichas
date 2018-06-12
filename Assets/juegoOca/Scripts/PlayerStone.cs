@@ -120,6 +120,12 @@ public class PlayerStone : MonoBehaviour
             // Are we on a roll again space?
             if (currentTile != null)
             {
+                if (currentTile.tag.Equals("Finish"))
+                {
+                    theStateManager.isFinish[theStateManager.CurrentPlayerId] = true;
+                    theStateManager.finalistas++;
+
+                }
                 if ( currentTile.IsRollAgain)
                 {
                    // moveQueue = null;

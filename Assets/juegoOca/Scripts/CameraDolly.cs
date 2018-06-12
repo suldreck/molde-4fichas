@@ -10,6 +10,7 @@ public class CameraDolly : MonoBehaviour {
         stone = GameObject.FindObjectsOfType<PlayerStone>();
         distancia = new float[stone.Length];
         baseCamara = this.transform.position;// posicion inicial de la camara
+        Debug.Log("numero piedras" + stone.Length);
 	}
 
     StateManager theStateManager;

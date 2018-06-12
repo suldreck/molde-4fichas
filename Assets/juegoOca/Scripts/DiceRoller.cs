@@ -27,12 +27,20 @@ public class DiceRoller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		
+        if (theStateManager.finalistas == theStateManager.NumberOfPlayers)
+        {
+            SceneManager.LoadScene("menu");
+           
+        }
     }
 
     public void RollTheDice()
     {
-
+        if (theStateManager.isFinish[theStateManager.CurrentPlayerId] == true)
+        {
+            theStateManager.NewTurn();
+            return;
+        }
         if (theStateManager.IsDoneRolling == true)
         {
             // We've already rolled this turn.
@@ -49,6 +57,7 @@ public class DiceRoller : MonoBehaviour
        // Debug.Log("longitud penal"+ theStateManager.penal.Length);
         theStateManager.DiceTotal = Random.Range(1, 6);
         theStateManager.DiceTotal = 2;
+        
         if (theStateManager.penal[theStateManager.CurrentPlayerId] > 0)
         {
             
