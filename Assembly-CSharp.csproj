@@ -111,6 +111,7 @@
     <Compile Include="Assets\preguntas\Scripts\AnswerData.cs" />
     <Compile Include="Assets\preguntas\Scripts\DataController.cs" />
     <Compile Include="Assets\preguntas\Scripts\GameController.cs" />
+    <Compile Include="Assets\preguntas\Scripts\GameData.cs" />
     <Compile Include="Assets\preguntas\Scripts\MenuScreenController.cs" />
     <Compile Include="Assets\preguntas\Scripts\QuestionData.cs" />
     <Compile Include="Assets\preguntas\Scripts\RoundData.cs" />
