@@ -5,11 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class sPanel : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+    // Use this for initialization
+    void Start()
+    {
+
+        carcel = GameObject.FindGameObjectsWithTag("carcel");
+        //carcel[1]
+        tablero = GameObject.FindObjectsOfType<Tile>();
+        //tablero[1].renderer.material material=test;
+
+
+    }
+    /// <summary>
+    /// campos para posible actualizcion estetica por imagen
+    /// </summary>
+    public Material test;
+    Tile [] tablero;
+    GameObject [] carcel;
+    GameObject [] puente;
+    GameObject [] dados;
+    GameObject [] pozo;
+    /// <summary>
+    /// fin
+    /// </summary>
 	// Update is called once per frame
 	void Update () {
         if (Input.anyKey)
