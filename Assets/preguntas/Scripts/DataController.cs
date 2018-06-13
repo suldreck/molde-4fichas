@@ -21,7 +21,8 @@ public class DataController : MonoBehaviour
     private void LoadGame()
     {
         string filePath = Path.Combine(Application.streamingAssetsPath, gameDataFileName);
-        if (File.Exists(filePath))
+        string filePath2 = Path.Combine(Application.streamingAssetsPath, "");
+        if (File.Exists(filePath) || File.Exists(filePath2+"/"+gameDataFileName))
         {
             string dataAsJson = File.ReadAllText(filePath);
             GameData loadedData = JsonUtility.FromJson<GameData>(dataAsJson);
