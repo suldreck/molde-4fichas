@@ -21,8 +21,23 @@ public class CameraDolly : MonoBehaviour
         Id = 0;
         IdAnterior = -1;
         IdCorrecta = 0;
+        idCorrectas = new int[stone.Length];
+        for (int i = 0; i < stone.Length; i++)
+        {
+            int j = 0;
+            while (stone[j].PlayerId != i && j < stone.Length)
+            {
+                j++;
+            }
+            idCorrectas[i] = j;
+        }
+        foreach (var item in idCorrectas)
+        {
+            Debug.Log(" nombre" + item);
+        }
+            
     }
-
+    int[] idCorrectas;
     StateManager theStateManager;
     PlayerStone[] stone;
     Vector3 baseCamara;
@@ -51,19 +66,19 @@ public class CameraDolly : MonoBehaviour
         //posicionActual= baseCamara + new Vector3(stone[theStateManager.CurrentPlayerId].transform.position.x, 0, 0);
         Id = theStateManager.CurrentPlayerId;
         
-        if (Id != IdAnterior)
-        {
-            IdAnterior = Id;
-            int i = 0;
-            while (stone[i].PlayerId!=IdAnterior && i< stone.Length)
-            {
-                i++;
-            }
-            IdCorrecta = i;
-        }
+        //if (Id != IdAnterior)
+        //{
+        //    IdAnterior = Id;
+        //    int i = 0;
+        //    while (stone[i].PlayerId!=IdAnterior && i< stone.Length)
+        //    {
+        //        i++;
+        //    }
+        //    IdCorrecta = i;
+        //}
         
       
-        posicionActual = baseCamara + new Vector3(stone[IdCorrecta].transform.position.x, 0, 0);
+        posicionActual = baseCamara + new Vector3(stone[idCorrectas[Id]].transform.position.x, 0, 0);
        // Debug.Log("la posicion de la camara actual es " + posicionActual);
         this.transform.position = posicionActual;
         //this.transform.rotation = Quaternion.Euler( new Vector3(0, theAngle, 0) );
